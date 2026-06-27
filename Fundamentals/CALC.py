@@ -21,8 +21,8 @@ print(f"Final number: {round(sum, 3)}")
 
 print("")
 
-weight = float(input("Your Weight: "))
 unit = input("Kilograms or Pounds (K or L): ")
+weight = float(input("Your Weight: "))
 
 if unit == "K":
     weight *= 2.205
@@ -36,3 +36,5 @@ elif unit == "L":
 
 else:
     print(f"{unit} was not valid")
+
+print("Obese" if weight >= 200 else "Not Obese")    
