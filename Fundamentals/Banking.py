@@ -1,5 +1,5 @@
 
-def showBalance():
+def showBalance(balance):
     print(f"Your balance is: {balance}")
 
 def deposit():
@@ -11,9 +11,8 @@ def deposit():
     else:
         return amount
 
-def withdraw():
+def withdraw(balance):
     amount = int(input("How much would you like to withdraw: "))
-
     
     if amount > balance:
         print("Insufficient funds to withdraw")
@@ -27,32 +26,36 @@ def withdraw():
         print(f"Succesfully withdrawn {amount}")
         return amount    
 
+def main():
 
-balance = 0
-isRunning = True
+    balance = 0
+    isRunning = True
 
-while isRunning:
-    print("Banking Program")
-    print("1.Show Balance")
-    print("2.Deposit")
-    print("3.Withdraw")
-    print("4.Exit")
+    while isRunning:
+        print("Banking Program")
+        print("1.Show Balance")
+        print("2.Deposit")
+        print("3.Withdraw")
+        print("4.Exit")
 
-    choice = input("Enter (1-4): ")
+        choice = input("Enter (1-4): ")
 
-    match choice:
-        case '1':
-            showBalance()
+        match choice:
+            case '1':
+                showBalance(balance)
 
-        case '2':
-           balance += deposit()
+            case '2':
+               balance += deposit()
 
-        case '3':
-           balance -= withdraw()
+            case '3':
+             balance -= withdraw(balance)
 
-        case '4':
-            isRunning = False
+            case '4':
+                isRunning = False
 
-        case _:
-            print("Not a valid input")                
-    print()        
+            case _:
+                print("Not a valid input")                
+        print()        
+
+if __name__ == '__main__':
+    main()        
