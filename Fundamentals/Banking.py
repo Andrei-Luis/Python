@@ -7,18 +7,24 @@ def deposit():
 
     if amount < 0:
         print("Can't deposit negative numbers!")
-    return amount
+        return 0
+    else:
+        return amount
 
 def withdraw():
     amount = int(input("How much would you like to withdraw: "))
 
+    
+    if amount > balance:
+        print("Insufficient funds to withdraw")
+        return 0
+
     if amount < 0:
         print("Can't withdraw negative numbers!")
         return 0
-    elif amount > balance:
-        print("Insufficient funds to withdraw")
-        return 0
+    
     else:        
+        print(f"Succesfully withdrawn {amount}")
         return amount    
 
 
